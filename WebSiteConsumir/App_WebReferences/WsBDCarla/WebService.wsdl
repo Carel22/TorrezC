@@ -19,6 +19,48 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="WSbusca">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id_Persona" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WSbuscaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="WSbuscaResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WSelimina">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id_Persona" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WSeliminaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="WSeliminaResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="WSaltasp">
         <s:complexType>
           <s:sequence>
@@ -73,6 +115,18 @@
   <wsdl:message name="WSlistadoSoapOut">
     <wsdl:part name="parameters" element="tns:WSlistadoResponse" />
   </wsdl:message>
+  <wsdl:message name="WSbuscaSoapIn">
+    <wsdl:part name="parameters" element="tns:WSbusca" />
+  </wsdl:message>
+  <wsdl:message name="WSbuscaSoapOut">
+    <wsdl:part name="parameters" element="tns:WSbuscaResponse" />
+  </wsdl:message>
+  <wsdl:message name="WSeliminaSoapIn">
+    <wsdl:part name="parameters" element="tns:WSelimina" />
+  </wsdl:message>
+  <wsdl:message name="WSeliminaSoapOut">
+    <wsdl:part name="parameters" element="tns:WSeliminaResponse" />
+  </wsdl:message>
   <wsdl:message name="WSaltaspSoapIn">
     <wsdl:part name="parameters" element="tns:WSaltasp" />
   </wsdl:message>
@@ -96,6 +150,14 @@
       <wsdl:input message="tns:WSlistadoSoapIn" />
       <wsdl:output message="tns:WSlistadoSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="WSbusca">
+      <wsdl:input message="tns:WSbuscaSoapIn" />
+      <wsdl:output message="tns:WSbuscaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WSelimina">
+      <wsdl:input message="tns:WSeliminaSoapIn" />
+      <wsdl:output message="tns:WSeliminaSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="WSaltasp">
       <wsdl:input message="tns:WSaltaspSoapIn" />
       <wsdl:output message="tns:WSaltaspSoapOut" />
@@ -113,6 +175,24 @@
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="WSlistado">
       <soap:operation soapAction="http://tempuri.org/WSlistado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WSbusca">
+      <soap:operation soapAction="http://tempuri.org/WSbusca" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WSelimina">
+      <soap:operation soapAction="http://tempuri.org/WSelimina" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -152,6 +232,24 @@
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="WSlistado">
       <soap12:operation soapAction="http://tempuri.org/WSlistado" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WSbusca">
+      <soap12:operation soapAction="http://tempuri.org/WSbusca" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WSelimina">
+      <soap12:operation soapAction="http://tempuri.org/WSelimina" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
