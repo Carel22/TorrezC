@@ -33,7 +33,26 @@ public class WebService : System.Web.Services.WebService
         return ds;
 
     }
-    
+    [WebMethod]
+    public DataSet WSbusca(int id_Persona)
+    {
+        SqlConnection conn = new SqlConnection();
+        conn.ConnectionString = "Data Source=DESKTOP-BMNBBM4; Initial Catalog=BDCarla; Integrated Security=True;";
+        SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM persona WHERE id_Persona='"+id_Persona+"'", conn);
+        DataSet ds = new DataSet();
+        da.Fill(ds);
+        return ds;
+    }
+    [WebMethod]
+    public DataSet WSelimina(int id_Persona)
+    {
+        SqlConnection conn = new SqlConnection();
+        conn.ConnectionString = "Data Source=DESKTOP-BMNBBM4; Initial Catalog=BDCarla; Integrated Security=True;";
+        SqlDataAdapter da = new SqlDataAdapter("DELETE FROM Persona WHERE id_Persona='" + id_Persona + "'", conn);
+        DataSet ds = new DataSet();
+        da.Fill(ds);
+        return ds;
+    }
     [WebMethod]
     public void WSaltasp(int id_Persona, string nombre, string apellido, string email, string rol, string ciudad, string username, string password, string edad)
     {
@@ -68,6 +87,11 @@ public class WebService : System.Web.Services.WebService
             string queryDisableIdentityInsert = "SET IDENTITY_INSERT Persona OFF";
             SqlCommand cmdDisableIdentityInsert = new SqlCommand(queryDisableIdentityInsert, conn);
             cmdDisableIdentityInsert.ExecuteNonQuery();
+
+            SqlDataAdapter da1 = new SqlDataAdapter("INSERT INTO Persona (id_Persona, nombre, apellido, email, rol, ciudad, username, password, edad)", conn);
+            DataSet ds1 = new DataSet();
+            da1.Fill(ds1);
+            //return ds1;
         }
 
     }
