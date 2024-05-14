@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="BDCarlaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="cuentabancaria">
+          <Key>
+            <PropertyRef Name="id_Cuenta" />
+          </Key>
+          <Property Name="id_Cuenta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tipocuenta" Type="varchar" MaxLength="50" />
+          <Property Name="saldo" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="personaId" Type="int" />
+        </EntityType>
+        <EntityType Name="persona">
+          <Key>
+            <PropertyRef Name="id_Persona" />
+          </Key>
+          <Property Name="id_Persona" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" />
+          <Property Name="apellido" Type="varchar" MaxLength="50" />
+          <Property Name="email" Type="varchar" MaxLength="100" />
+          <Property Name="rol" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="transaccionbancaria">
+          <Key>
+            <PropertyRef Name="id_Transaccion" />
+          </Key>
+          <Property Name="id_Transaccion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cuentaID" Type="int" />
+          <Property Name="tipoTransaccion" Type="varchar" MaxLength="50" />
+          <Property Name="monto" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="fechaHora" Type="datetime" />
+        </EntityType>
+        <EntityContainer Name="BDCarlaModelStoreContainer">
+          <EntitySet Name="cuentabancaria" EntityType="Self.cuentabancaria" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="persona" EntityType="Self.persona" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="transaccionbancaria" EntityType="Self.transaccionbancaria" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BDCarlaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="cuentabancaria">
+          <Key>
+            <PropertyRef Name="id_Cuenta" />
+          </Key>
+          <Property Name="id_Cuenta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tipocuenta" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="saldo" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="personaId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="persona">
+          <Key>
+            <PropertyRef Name="id_Persona" />
+          </Key>
+          <Property Name="id_Persona" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="apellido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="rol" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="transaccionbancaria">
+          <Key>
+            <PropertyRef Name="id_Transaccion" />
+          </Key>
+          <Property Name="id_Transaccion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cuentaID" Type="Int32" />
+          <Property Name="tipoTransaccion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="monto" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="fechaHora" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityContainer Name="BDCarlaEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="cuentabancaria" EntityType="Self.cuentabancaria" />
+          <EntitySet Name="persona" EntityType="Self.persona" />
+          <EntitySet Name="transaccionbancaria" EntityType="Self.transaccionbancaria" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BDCarlaModelStoreContainer" CdmEntityContainer="BDCarlaEntities">
+          <EntitySetMapping Name="cuentabancaria">
+            <EntityTypeMapping TypeName="BDCarlaModel.cuentabancaria">
+              <MappingFragment StoreEntitySet="cuentabancaria">
+                <ScalarProperty Name="id_Cuenta" ColumnName="id_Cuenta" />
+                <ScalarProperty Name="tipocuenta" ColumnName="tipocuenta" />
+                <ScalarProperty Name="saldo" ColumnName="saldo" />
+                <ScalarProperty Name="personaId" ColumnName="personaId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="persona">
+            <EntityTypeMapping TypeName="BDCarlaModel.persona">
+              <MappingFragment StoreEntitySet="persona">
+                <ScalarProperty Name="id_Persona" ColumnName="id_Persona" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="apellido" ColumnName="apellido" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="rol" ColumnName="rol" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="transaccionbancaria">
+            <EntityTypeMapping TypeName="BDCarlaModel.transaccionbancaria">
+              <MappingFragment StoreEntitySet="transaccionbancaria">
+                <ScalarProperty Name="id_Transaccion" ColumnName="id_Transaccion" />
+                <ScalarProperty Name="cuentaID" ColumnName="cuentaID" />
+                <ScalarProperty Name="tipoTransaccion" ColumnName="tipoTransaccion" />
+                <ScalarProperty Name="monto" ColumnName="monto" />
+                <ScalarProperty Name="fechaHora" ColumnName="fechaHora" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
