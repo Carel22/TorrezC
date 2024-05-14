@@ -1,0 +1,92 @@
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #e6f0ff;
+}
+
+header {
+    background-color: #003366;
+    color: #fff;
+    padding: 1rem;
+}
+
+header h1 {
+    margin: 0;
+}
+
+main {
+    padding: 2rem;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 0.5rem;
+    text-align: left;
+    border-bottom: 1px solid #999;
+}
+
+th {
+    background-color: #003366;
+    color: #fff;
+}
+
+tr:nth-child(even) {
+    background-color: #e6f0ff;
+}
+
+footer {
+    background-color: #003366;
+    color: #fff;
+    padding: 1rem;
+    text-align: center;
+    margin-top: 1rem;
+}
+h2 {
+    background-color: #e0e0e0; /* Color de fondo para los títulos de sección */
+    padding: 10px; /* Espaciado interior */
+    margin-top: 20px; /* Espaciado superior */
+}
+
+
+
+
+
+
+/*generar*/
+.claseBody ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #003366;
+}
+.claseBody ul li {
+    float: left;
+}
+.claseBody ul li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    background-color: #003366;
+}
+/* Cambiar el color del enlace a #111 (negro) al pasar el ratón */
+.claseBody ul li a:hover {
+    background-color: dodgerblue;
+    text-decoration: none;
+}
+.li1{
+    color:#e2e60f;
+}
+/*imagenes*/
+.centered-image {
+    display: block;
+    margin: auto;
+}
