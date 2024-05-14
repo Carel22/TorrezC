@@ -53,17 +53,8 @@ if ($query) {
                 <li class="nav-item">
                   <a class="nav-link active" aria-current="page" href="transacciones.php" target="_blank">Transacciones</a>
                 </li>  
-            <!--<form method="POST" action="buscarRes.php">
-            <div class="input-group">
-                <input class="form-control me-2" name="ci" type="text" placeholder="Introduce CI" aria-label="Introduce CI">
-                <button class="btn btn-outline-success" type="submit">Buscar</button>
-            </div>
-        </form>-->
-        
+          
           </ul>
-          <!--<form class="d-flex" role="buscar">
-        <input class="form-control me-2" type="buscar" placeholder="Introduce CI" aria-label="Introduce CI">
-        <button class="btn btn-outline-success" type="submit">Buscar</button>-->
       </form>
         </div>
       </div>
@@ -87,6 +78,9 @@ if ($query) {
             <input type="submit" value="Agregar">
                 </form>
             </div>
+            <?php
+include 'footer.php';
+?>
         </body>
         </html>
         <?php

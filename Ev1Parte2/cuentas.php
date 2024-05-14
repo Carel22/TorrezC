@@ -34,10 +34,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <nav class="navbar navbar-expand-lg bg-danger">
       <div class="container-fluid">
         <a class="navbar-brand fw-bold  " href="#">
-        <h5 style="line-height: 1; margin-bottom: 0;">
-        
-        <span class="fw-bold" style="font-size: 1.2em;">BIENVENIDO A NUESTRO BANCO</span>
-    </h5>
+        <?php
+include 'header.php';
+?>
   </a> 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -59,6 +58,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <!---->
 
 <h1 class="text-center p-3">Registra la apertura de cuenta</h1>
+
 <div class="users-form">
  
 <form action="adicionaCuentaA.php" method="POST">
@@ -85,7 +85,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <th style="background-color: #a6c8db; color: white;">Tipo de cuenta</th>
                     <th style="background-color: #a6c8db; color: white;">Saldo de Apertura</th>
                     <th style="background-color: #a6c8db; color: white;">Saldo Actual</th>
-                    
+                    <th style="background-color: #a6c8db; color: white;"></th>
+                    <th style="background-color: #a6c8db; color: white;"></th>
                 </tr>
             </thead>
 
@@ -124,6 +125,7 @@ echo "$saldo_actual";
             </td>
             
             <td><a href="cambiarCuentaA.php?id=<?= $row['id_Cuenta'] ?>" class="users-table--edit">Cambiar</a></td> 
+	    <td><a href="borrarCuentaA.php?id=<?= $row['id_Cuenta'] ?>" class="users-table--delete">Eliminar</a></td> 
         </tr>
     <?php endwhile; ?>
 </tbody>
@@ -131,7 +133,9 @@ echo "$saldo_actual";
         </table>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-
+    <?php
+include 'footer.php';
+?>
 </body>
 
 </html>

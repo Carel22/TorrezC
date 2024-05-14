@@ -19,6 +19,7 @@
         if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);
         }
+        
         echo "<h2>Cuentas de Ahorros</h2>";
         echo "<p>Una Cuenta de Ahorros es una cuenta bancaria diseñada para guardar dinero y acumular intereses a lo largo del tiempo. Con una cuenta de ahorros, puedes depositar dinero y dejarlo allí para que crezca con una tasa de interés, que suele ser más alta que la de una cuenta corriente. </p>";
         
@@ -45,8 +46,8 @@
         $conn->close();
         ?>
     </main>
-    <footer>
-        &copy; <?php echo date("Y"); ?> Cuentas de Ahorros
-    </footer>
+    <?php
+include 'footer.php';
+?>
 </body>
 </html>

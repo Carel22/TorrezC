@@ -30,6 +30,9 @@ if ($query) {
   <div class="row">
     <div class="col"></div>
     <div class="col-md-6" style="background-color: #a8d3b2; color: white; padding: 20px; text-align: center;">
+    <?php
+include 'header.php';
+?>
     <h1>Edita los valores de la cuenta</h1>   
     </div>
     <div class="col"></div>

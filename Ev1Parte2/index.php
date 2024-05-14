@@ -33,13 +33,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 <body >
 <!---->
+
 <h1 style="background-color:DodgerBlue;color:antiquewhite">BANCO JUNIOR</h1> <!-- Título del banco con estilos en línea -->
 <div class="claseBody"> <!-- Div contenedor con la clase "claseBody" -->
-<ul> <!-- Lista desordenada -->
-<li><a href="df.php">DEPOSITO A PLAZO FIJO</a></li> <!-- Elemento de la lista con enlace -->
-<li><a href="cc.php">CUENTA CORRIENTE</a></li> <!-- Elemento de la lista con enlace -->
-<li><a href="ca.php">CUENTA DE AHORROS</a></li> <!-- Elemento de la lista con enlace -->
-</ul> <!-- Fin de la lista desordenada -->
+<?php
+include'header.php';
+?>
 <h2>Misión</h2>
 <p>En Banco Junior, nuestra misión es brindar soluciones financieras innovadoras y accesibles a nuestros clientes, ayudándolos a alcanzar sus metas financieras y mejorar su calidad de vida.</p>
 
@@ -86,10 +85,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+<?php
+include"footer.php";
+?>
 </body>
-<footer>
-        &copy; <?php echo date("Y"); ?> Banco Junior
-    </footer>
+
 </html>
 
 
